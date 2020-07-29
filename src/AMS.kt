@@ -15,7 +15,7 @@ fun main() {
 
 fun feedTheFish(){
     val day = randomDay()
-    val food = "Pellets"
+    val food = fishFood(day)
 
     print("Today is $day the fish eats $food")
 }
@@ -23,4 +23,17 @@ fun feedTheFish(){
 fun randomDay(): String{
     val week = listOf ("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday")
     return week[Random().nextInt(7)]
+}
+
+fun fishFood(day: String): String{
+    var food = "fasting"
+    when(day){
+        "Monday" -> food = "Flakes"
+        "Tuesday" -> food = "Pellets"
+        "Wednesday" -> food = "Redworms"
+        "Thursday" -> food = "Granules"
+        "Friday" -> food = "Mosquitoes"
+        "Saturday" -> food = "plankton"
+    }
+    return food
 }
